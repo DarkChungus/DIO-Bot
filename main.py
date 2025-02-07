@@ -1,9 +1,9 @@
 # Importing all the required libraries
 
 import discord
+from discord.ext import commands
 import nextcord
 from nextcord import Interaction
-from discord.ext import commands
 import time
 import random
 from botToken import *
@@ -27,7 +27,8 @@ async def help(interaction: Interaction):
     helpEmbed = discord.Embed(
         title="Commands List",
         description="**/help**: Gives you a list of the commands this bot uses.\n"
-                    "**/github**: Link to my creator's GitHub.",
+                    "**/github**: Link to my creator's GitHub.\n"
+                    "**/magic8ball**: Ask any question to the Magic 8 Ball! Not to be taken seriously.",
         color=0xff00ff
     )
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
@@ -50,6 +51,21 @@ async def github(interaction: Interaction):
         color=0x33ccff
     )
     await interaction.response.send_message(embed=githubEmbed)
+
+# Magic 8Ball
+@dioBot.slash_command(name="magic8ball", description="Ask the Magic 8Ball any question!", guild_ids=[serverID])
+async def magic8ball(interaction: Interaction, message: str):
+    ballAnswers = ['yes', 'i dont know', 'no', 'maybe', 'i do not care', 'why are you trusting this bot?']
+    ballRandom = random.randint(0, 5)
+    ballResponse = ballAnswers[ballRandom]
+    userMessage = str(message)
+    ballEmbed = discord.Embed(
+        title="Magic 8Ball",
+        description="**Question**:\n"+userMessage+"\n"
+                    "**Answer**:\n"+ballResponse,
+        color=0x4000ff
+    )
+    await interaction.response.send_message(embed=ballEmbed)
 
 # Run the bot
 dioBot.run(botToken)
