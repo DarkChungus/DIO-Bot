@@ -1,6 +1,8 @@
 # Importing all the required libraries
 
 import discord
+import nextcord
+from nextcord import Interaction
 from discord.ext import commands
 import time
 import random
@@ -10,6 +12,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.guilds = True
 dioBot = commands.Bot(command_prefix="dio, ", intents=intents)
+serverID = 1337236814217478257
 
 # Notifies in console that the bot is running
 @dioBot.event
@@ -49,16 +52,16 @@ async def on_message(message):
     if message.content.lower() == 'dio, the world':
         await message.channel.send('https://tenor.com/view/za-warudo-the-world-dio-brando-stand-joseph-joestar-gif-26463002')
 
-# My GitHub promotion using an embed
-@dioBot.command()
-async def github(ctx):
+# Slash command to my GitHub
+@dioBot.slash_command(name="github", description="Link to my GitHub", guild_ids=[serverID])
+async def github(interaction: Interaction):
     githubEmbed = discord.Embed(
-                                title="My Github",
-                                url="https://github.com/DarkChungus",
-                                description="This bot is a project by Prakrit Gajurel(godchunguus). Please support me on GitHub by starring any of my repositories that can be helpful to you!",
-                                color=0x33ccff
-                                )
-    await ctx.send(embed=githubEmbed)
+        title="My Github",
+        url="https://github.com/DarkChungus",
+        description="This bot is a project by Prakrit Gajurel(godchunguus). Please support me on GitHub by starring any of my repositories that can be helpful to you!",
+        color=0x33ccff
+    )
+    await interaction.response.send_message(embed=githubEmbed)
 
 # Run the bot
 dioBot.run(botToken)
