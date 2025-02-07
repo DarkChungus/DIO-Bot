@@ -6,13 +6,14 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.guilds = True
 client = commands.Bot(command_prefix='!', intents=intents)
-botToken = 'MTMzNzIzNDYxMjAzNjA0Mjc2Mg.GNARI6.1xgqNtR7p4R8XICuJhMLjNDXIg3aLErQx3dSZw'
+botToken = 'token'
 
 localTime = time.localtime()
 
 @client.event
 async def on_ready():
-    print("The bot is ready to use!")
+    print("------------------------")
+    print("!!!!!!BOT IS READY!!!!!!")
     print("------------------------")
 
 @client.command()
