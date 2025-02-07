@@ -36,17 +36,18 @@ async def timer(ctx):
         time.sleep(1)
     await ctx.send("Your timer for 10 seconds is up!")
 
-# Time Stop GIF
-@dioBot.command()
-async def THEWORLD(ctx):
-    await ctx.send("https://tenor.com/view/za-warudo-the-world-dio-brando-stand-joseph-joestar-gif-26463002")
-
 # Random number generator from 1 to 100
 @dioBot.command()
 async def random(ctx):
     randomNumber = random.randint(1, 101)
     strRandom = str(randomNumber)
     await ctx.send("The random number from 1 to 100 is "+strRandom+".")
+
+# Time Stop GIF
+@dioBot.event
+async def on_message(message):
+    if message.content.lower() == 'dio, the world':
+        await message.channel.send('https://tenor.com/view/za-warudo-the-world-dio-brando-stand-joseph-joestar-gif-26463002')
 
 # My GitHub promotion using an embed
 @dioBot.command()
