@@ -27,4 +27,10 @@ async def timer10(ctx):
     time.sleep(10)
     await ctx.send("Timer is up!")
 
+@client.command()
+async def counttoten(ctx):
+    for i in range(1, 11):
+        time.sleep(1)
+        await ctx.send(i)
+
 client.run(botToken)
