@@ -21,30 +21,18 @@ async def on_ready():
     print(" The bot is ready to use")
     print("--------------------------")
 
-# Simple hello command
-@dioBot.command()
-async def hello(ctx):
-    await ctx.send("Hello there!")
+# Help command
+@dioBot.slash_command(name="help", description="A list with the commands of this bot", guild_ids=[serverID])
+async def help(interaction: Interaction):
+    helpEmbed = discord.Embed(
+        title="Commands List",
+        description="**/help**: Gives you a list of the commands this bot uses.\n"
+                    "**/github**: Link to my creator's GitHub.",
+        color=0xff00ff
+    )
+    helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
+    await interaction.response.send_message(embed=helpEmbed)
 
-# Ping Pong
-@dioBot.command()
-async def ping(ctx):
-    await ctx.send("Pong!")
-
-# Timer for 10 seconds
-@dioBot.command()
-async def timer(ctx):
-    for i in range(1, 11):
-        await ctx.send(i)
-        time.sleep(1)
-    await ctx.send("Your timer for 10 seconds is up!")
-
-# Random number generator from 1 to 100
-@dioBot.command()
-async def random(ctx):
-    randomNumber = random.randint(1, 101)
-    strRandom = str(randomNumber)
-    await ctx.send("The random number from 1 to 100 is "+strRandom+".")
 
 # Time Stop GIF
 @dioBot.event
