@@ -65,7 +65,39 @@ async def magic8ball(interaction: Interaction, message: str):
                     "**Answer**:\n"+ballResponse,
         color=0x4000ff
     )
+    ballEmbed.set_thumbnail("https://imgs.search.brave.com/WaQzsF00WAsav4erjtbCsCM3eQ05-_p15O3tT4oQNPI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvOC1i/YWxsLXBvb2wtZ2Ft/ZS1iYWxsLW50cDR1/NjNqbDdyYmhvenIu/cG5n")
     await interaction.response.send_message(embed=ballEmbed)
+
+# Shipping Command
+@dioBot.slash_command(name="ship", description="Ship any two people using this feature!", guild_ids=[serverID])
+async def ship(interaction: Interaction, user1: str, user2: str):
+    userOne = str(user1)
+    userTwo = str(user2)
+    loveChance = random.randint(1, 101)
+    if loveChance<20:
+        shipReview = "**Oof.. would not ship..**"
+    elif loveChance>=20 and loveChance<50:
+        shipReview = "**Decent.. still very bad ship..**"
+    elif loveChance==50:
+        shipReview = "**Honestly, it can go both ways!**"
+    elif loveChance>50 and loveChance<69:
+        shipReview = "**Wow! A decent ship!**"
+    elif loveChance==69:
+        shipReview = "**( ͡° ͜ʖ ͡°) noice ( ͡° ͜ʖ ͡°)**"
+    elif loveChance>69 and loveChance<80:
+        shipReview = "**Wouldn't put my life on it, but it is a good ship!**"
+    elif loveChance>=80 and loveChance<100:
+        shipReview = "**Wow!!! These people are meant for each other!**"
+    elif loveChance==100:
+        shipReview = "***THIS IS A PERFECT MATCH! <3 <3 <3***"
+
+    shipEmbed = discord.Embed(
+        title="Ship",
+        description=userOne+" and "+userTwo+"!!!\nLove Percentage: "+str(loveChance)+"\n"+str(shipReview),
+        color=0xff33cc
+    )
+    shipEmbed.set_thumbnail("https://imgs.search.brave.com/ccznmW8qR0CSyUekQdwAbdhp0tKbp0FQLSEHfQeoODk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL2hlYXJ0cy1w/bmctaGQtZG93bmxv/YWQtcG5nLWltYWdl/LWhlYXJ0LXBuZy1o/ZC0yNDM1LTk5OS5w/bmc")
+    await interaction.response.send_message(embed=shipEmbed)
 
 # Run the bot
 dioBot.run(botToken)
