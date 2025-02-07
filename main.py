@@ -8,8 +8,6 @@ intents.guilds = True
 client = commands.Bot(command_prefix='!', intents=intents)
 botToken = 'token'
 
-localTime = time.localtime()
-
 @client.event
 async def on_ready():
     print("------------------------")
@@ -25,7 +23,8 @@ async def ping(ctx):
     await ctx.send("pong")
 
 @client.command()
-async def time(ctx):
-    await ctx.send("Feature in development")
+async def timer10(ctx):
+    time.sleep(10)
+    await ctx.send("Timer is up!")
 
 client.run(botToken)
