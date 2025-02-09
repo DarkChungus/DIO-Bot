@@ -30,7 +30,9 @@ async def help(interaction: Interaction):
                     "**/github**: Link to my creator's GitHub.\n"
                     "**/magic8ball**: Ask any question to the Magic 8 Ball! Not to be taken seriously.\n"
                     "**/ship**: Ship any two users!\n"
-                    "**/flip**: Flip a coin!",
+                    "**/flip**: Flip a coin!\n"
+                    "**/introduction**: Get an introduction to Dio Brando.\n"
+                    "**/greet**: Get DIO to greet anyone!",
         color=0xff00ff
     )
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
@@ -47,12 +49,12 @@ async def on_message(message):
 async def introduction(interaction: Interaction):
     introEmbed = discord.Embed(
         title="DIO's Introduction",
-        description="\"He IS PURE EVIL, right down to his very bones! Is he a victim of circumstance, you're wondering? Not on your life! He's been evil since he drew his first breath!\" - Speedwagon\n"
-                    "Dio Brando (ディオ・ブランドー Dio Burandō), known as DIO (ディオ) from Part 3 onwards, is the main antagonist in the original universe of JoJo's Bizarre Adventure, featured primarily as the main antagonist in Phantom Blood and Stardust Crusaders, and a posthumous key antagonist in Stone Ocean.",
+        description="\"**He IS PURE EVIL, right down to his very bones! Is he a victim of circumstance, you're wondering? Not on your life! He's been evil since he drew his first breath!**\" - *Speedwagon*\n\n\n"
+                    "***Dio Brando*** (ディオ・ブランドー Dio Burandō), known as ***DIO*** (ディオ) from Part 3 onwards, is the main antagonist in the original universe of JoJo's Bizarre Adventure, featured primarily as the main antagonist in Phantom Blood and Stardust Crusaders, and a posthumous key antagonist in Stone Ocean.",
         color=0xff3300
     )
     introEmbed.set_thumbnail("https://static.wikia.nocookie.net/jjba/images/7/70/Shadow_DIO_Anime.png/revision/latest?cb=20181121204550")
-    await interaction.channel.send(embed=introEmbed)
+    await interaction.response.send_message(embed=introEmbed)
 
 # Simple Greetings
 @dioBot.slash_command(name="greet", description="DIO greets anyone!", guild_ids=[serverID])
@@ -63,7 +65,7 @@ async def greet(interaction: Interaction, name: str):
         color=0x66ccff
     )
     greetEmbed.set_thumbnail("https://imgs.search.brave.com/hLEWH7ANevxmkdok015gZLTkiRittw42-heWrhN0wnM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtMDAuaWNvbmR1/Y2suY29tL2Fzc2V0/cy4wMC93YXZpbmct/aGFuZC1lbW9qaS0y/NTB4MjU2LXJtc3Nq/eDEzLnBuZw")
-    await interaction.channel.send(embed=greetEmbed)
+    await interaction.response.send_message(embed=greetEmbed)
 
 # Slash command to my GitHub
 @dioBot.slash_command(name="github", description="Link to my GitHub", guild_ids=[serverID])
