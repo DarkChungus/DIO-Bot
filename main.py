@@ -28,7 +28,8 @@ async def help(interaction: Interaction):
         title="Commands List",
         description="**/help**: Gives you a list of the commands this bot uses.\n"
                     "**/github**: Link to my creator's GitHub.\n"
-                    "**/magic8ball**: Ask any question to the Magic 8 Ball! Not to be taken seriously.",
+                    "**/magic8ball**: Ask any question to the Magic 8 Ball! Not to be taken seriously.\n"
+                    "**/ship**: Ship any two users!",
         color=0xff00ff
     )
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
@@ -98,6 +99,19 @@ async def ship(interaction: Interaction, user1: str, user2: str):
     )
     shipEmbed.set_thumbnail("https://imgs.search.brave.com/ccznmW8qR0CSyUekQdwAbdhp0tKbp0FQLSEHfQeoODk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL2hlYXJ0cy1w/bmctaGQtZG93bmxv/YWQtcG5nLWltYWdl/LWhlYXJ0LXBuZy1o/ZC0yNDM1LTk5OS5w/bmc")
     await interaction.response.send_message(embed=shipEmbed)
+
+@dioBot.slash_command(name="flip", description="Flip a coin", guild_ids=[serverID])
+async def flip(interaction: Interaction):
+    coinToss = ['heads', 'tails']
+    temp = random.randint(0, 1)
+    outcome = coinToss[temp]
+    coinEmbed = discord.Embed(
+        title="Coin Toss",
+        description="You tossed "+outcome+"!",
+        color=0xffff00
+    )
+    coinEmbed.set_thumbnail("https://imgs.search.brave.com/YIK6s2rsoLtz6vh0uMvENk5VIM8ZQWgP8u5PjPU4-Kw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmcu/cG5ndHJlZS5jb20v/cG5nLWNsaXBhcnQv/MjAyMzA1MjAvb3Vy/bWlkL3BuZ3RyZWUt/ZC1nb2xkLWNvaW4t/ZG9sbGFyLXVzLWN1/cnJlbmN5LW1vbmV5/LWljb24tc2lnbi1v/ci1zeW1ib2wtcG5n/LWltYWdlXzcxMDE3/ODUucG5n")
+    await interaction.response.send_message(embed=coinEmbed)
 
 # Run the bot
 dioBot.run(botToken)
