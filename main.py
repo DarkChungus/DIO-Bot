@@ -105,11 +105,18 @@ async def flip(interaction: Interaction):
     coinToss = ['heads', 'tails']
     temp = random.randint(0, 1)
     outcome = coinToss[temp]
-    coinEmbed = discord.Embed(
-        title="Coin Toss",
-        description="You tossed "+outcome+"!",
-        color=0xffff00
-    )
+    if outcome=='heads':
+        coinEmbed = discord.Embed(
+            title="Coin Toss",
+            description="You tossed **heads**!",
+            color=0xffff00
+        )
+    else:
+        coinEmbed = discord.Embed(
+            title="Coin Toss",
+            description="You tossed **tails**!",
+            color=0xff9900
+        )
     coinEmbed.set_thumbnail("https://imgs.search.brave.com/YIK6s2rsoLtz6vh0uMvENk5VIM8ZQWgP8u5PjPU4-Kw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmcu/cG5ndHJlZS5jb20v/cG5nLWNsaXBhcnQv/MjAyMzA1MjAvb3Vy/bWlkL3BuZ3RyZWUt/ZC1nb2xkLWNvaW4t/ZG9sbGFyLXVzLWN1/cnJlbmN5LW1vbmV5/LWljb24tc2lnbi1v/ci1zeW1ib2wtcG5n/LWltYWdlXzcxMDE3/ODUucG5n")
     await interaction.response.send_message(embed=coinEmbed)
 
