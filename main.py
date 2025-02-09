@@ -36,19 +36,34 @@ async def help(interaction: Interaction):
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
     await interaction.response.send_message(embed=helpEmbed)
 
-
 # Time Stop GIF
 @dioBot.event
 async def on_message(message):
     if message.content.lower() == 'dio, the world':
         await message.channel.send('https://tenor.com/view/za-warudo-the-world-dio-brando-stand-joseph-joestar-gif-26463002')
 
-# Greeter
-@dioBot.event
-async def on_message(message):
-    if message.content.lower() == "dio, hello":
-        username = message.author.name
-        await message.channel.send(f'Whats popping, {username}?')
+# DIO Introduces himself
+@dioBot.slash_command(name="introduction", description="Get an idea of who I am", guild_ids=[serverID])
+async def introduction(interaction: Interaction):
+    introEmbed = discord.Embed(
+        title="DIO's Introduction",
+        description="\"He IS PURE EVIL, right down to his very bones! Is he a victim of circumstance, you're wondering? Not on your life! He's been evil since he drew his first breath!\" - Speedwagon\n"
+                    "Dio Brando (ディオ・ブランドー Dio Burandō), known as DIO (ディオ) from Part 3 onwards, is the main antagonist in the original universe of JoJo's Bizarre Adventure, featured primarily as the main antagonist in Phantom Blood and Stardust Crusaders, and a posthumous key antagonist in Stone Ocean.",
+        color=0xff3300
+    )
+    introEmbed.set_thumbnail("https://static.wikia.nocookie.net/jjba/images/7/70/Shadow_DIO_Anime.png/revision/latest?cb=20181121204550")
+    await interaction.channel.send(embed=introEmbed)
+
+# Simple Greetings
+@dioBot.slash_command(name="greet", description="DIO greets anyone!", guild_ids=[serverID])
+async def greet(interaction: Interaction, name: str):
+    greetEmbed = discord.Embed(
+        title="Greetings",
+        description="Hey there, "+name+"!",
+        color=0x66ccff
+    )
+    greetEmbed.set_thumbnail("https://imgs.search.brave.com/hLEWH7ANevxmkdok015gZLTkiRittw42-heWrhN0wnM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtMDAuaWNvbmR1/Y2suY29tL2Fzc2V0/cy4wMC93YXZpbmct/aGFuZC1lbW9qaS0y/NTB4MjU2LXJtc3Nq/eDEzLnBuZw")
+    await interaction.channel.send(embed=greetEmbed)
 
 # Slash command to my GitHub
 @dioBot.slash_command(name="github", description="Link to my GitHub", guild_ids=[serverID])
