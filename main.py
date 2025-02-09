@@ -68,7 +68,7 @@ async def greet(interaction: Interaction, name: str):
     await interaction.response.send_message(embed=greetEmbed)
 
 # Slash command to my GitHub
-@dioBot.slash_command(name="github", description="Link to my GitHub", guild_ids=[serverID])
+@dioBot.slash_command(name="github", description="Link to my creator\'s GitHub", guild_ids=[serverID])
 async def github(interaction: Interaction):
     githubEmbed = discord.Embed(
         title="My Github",
