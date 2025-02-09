@@ -3,7 +3,7 @@
   <p>
     <b><i>DIO</i></b> is a discord bot that I made, to get a feel of how discord bots are made again. I made a few other discord bots before, but it wasn't really that big of a project,
     I probably only did a few greetings, and the "ping pong" feature(not to mention, it was made in JavaScript). This time, though, I want this project to be something I can dedicate a 
-    lot of time to.<br>br>
+    lot of time to.<br><br>
     <b>💻TECHNOLOGIES USED💻</b><br>
     <b>🐍 Python</b><br>
     <b>💬 Discord</b><br>
