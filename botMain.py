@@ -25,16 +25,11 @@ async def on_ready():
 @dioBot.slash_command(name="help", description="A list with the commands of this bot", guild_ids=[serverID])
 async def help(interaction: Interaction):
     helpEmbed = discord.Embed(
-        title="Commands List",
-        description="**/help**: Gives you a list of the commands this bot uses.\n"
-                    "**/github**: Link to my creator's GitHub.\n"
-                    "**/magic8ball**: Ask any question to the Magic 8 Ball! Not to be taken seriously.\n"
-                    "**/ship**: Ship any two users!\n"
-                    "**/flip**: Flip a coin!\n"
-                    "**/introduction**: Get an introduction to Dio Brando.\n"
-                    "**/greet**: Get DIO to greet anyone!",
+        title="DIO BOT HELP",
         color=0xff00ff
     )
+    helpEmbed.add_field(name="__Commands__", value="**/help**\n**/github**\n**/magic8ball**\n**/ship**\n**/flip**\n**/introduction**\n**/greet**")
+    helpEmbed.add_field(name="__Description__", value="Gives you a list of the commands this bot uses.\nLink to my creator's GitHub.\n Ask any question to the Magic 8 Ball! Not to be taken seriously.\nShip any two users!\nFlip a coin!\nGet an introduction to Dio Brando.\nGet DIO to greet anyone!")
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
     await interaction.response.send_message(embed=helpEmbed)
 
