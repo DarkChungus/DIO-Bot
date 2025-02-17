@@ -28,8 +28,8 @@ async def help(interaction: Interaction):
         title="DIO BOT HELP",
         color=0xff00ff
     )
-    helpEmbed.add_field(name="__Commands__", value="**/help**\n**/github**\n**/magic8ball**\n**/ship**\n**/flip**\n**/introduction**\n**/greet**")
-    helpEmbed.add_field(name="__Description__", value="Gives you a list of the commands this bot uses.\nLink to my creator's GitHub.\n Ask any question to the Magic 8 Ball! Not to be taken seriously.\nShip any two users!\nFlip a coin!\nGet an introduction to Dio Brando.\nGet DIO to greet anyone!")
+    helpEmbed.add_field(name="__Commands__", value="**/help**\n**/github**\n**/magic8ball**\n\n**/ship**\n**/flip**\n**/introduction**\n**/greet**\n**/stand**\n**/overheaven**")
+    helpEmbed.add_field(name="__Description__", value="Gives you a list of the commands this bot uses.\nLink to my creator's GitHub.\n Ask any question to the Magic 8 Ball! Not to be taken seriously.\nShip any two users!\nFlip a coin!\nGet an introduction to Dio Brando.\nGet DIO to greet anyone!\n Get a picture of The World!\n Get a picture of Heaven Attained DIO.")
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
     await interaction.response.send_message(embed=helpEmbed)
 
@@ -145,8 +145,15 @@ async def flip(interaction: Interaction):
 @dioBot.slash_command(name="stand", description="Get a picture of DIO's stand", guild_ids=[serverID])
 async def stand(interaction: Interaction):
     theWorldEmbed = discord.Embed(title="The World", color=0xccff33)
-    theWorldEmbed.set_image("https://imgs.search.brave.com/dStKObXB1Zl17NAhwKXqadAEY6jLmllzkJ4YmLclQNA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuam9qb3dpa2ku/Y29tL2ltYWdlcy90/aHVtYi9mL2Y1L2xh/dGVzdC8yMDIxMDQy/NDE2MjkxMi9UaGVf/V29ybGRfSW5mb2Jv/eF9NYW5nYS5wbmcv/NDAwcHgtVGhlX1dv/cmxkX0luZm9ib3hf/TWFuZ2EucG5n")
+    theWorldEmbed.set_image("https://static.wikia.nocookie.net/jjba/images/d/d8/The_world_c252.png/revision/latest?cb=20160413152044")
     await interaction.response.send_message(embed=theWorldEmbed)
+
+# Shows picture of Heaven Attained Dio
+@dioBot.slash_command(name="overheaven", description="Get a picture of Heaven Attained Dio", guild_ids=[serverID])
+async def overheaven(interaction: Interaction):
+    overHeavenEmbed = discord.Embed(title="The World Over Heaven", color=0x9933ff)
+    overHeavenEmbed.set_image("https://imgs.search.brave.com/CqxWZwq8DqjTDCBp61mWHC_TB75fdQEjnVMin9GS3ZY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L3Zz/YmF0dGxlcy9pbWFn/ZXMvYi9iZi9IZWF2/ZW5fRGlvLnBuZy9y/ZXZpc2lvbi9sYXRl/c3Qvc2NhbGUtdG8t/d2lkdGgtZG93bi80/MDA_Y2I9MjAxNjEw/MjIxNjI1NTI")
+    await interaction.response.send_message(embed=overHeavenEmbed)
 
 # Run the bot
 dioBot.run(botToken)
