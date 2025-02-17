@@ -16,5 +16,7 @@
     <b>/flip:</b> Flip a coin!<br>
     <b>/introduction:</b> Get an introduction to Dio Brando.<br>
     <b>/greet:</b> Get DIO to greet anyone!<br>
+    <b>/stand:</b> Get a picture of The World!<br>
+    <b>/overheaven:</b> Get a picture of Heaven Attained Dio.<br>
   </p>
 </div>
