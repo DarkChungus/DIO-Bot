@@ -141,5 +141,12 @@ async def flip(interaction: Interaction):
     coinEmbed.set_thumbnail("https://imgs.search.brave.com/YIK6s2rsoLtz6vh0uMvENk5VIM8ZQWgP8u5PjPU4-Kw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmcu/cG5ndHJlZS5jb20v/cG5nLWNsaXBhcnQv/MjAyMzA1MjAvb3Vy/bWlkL3BuZ3RyZWUt/ZC1nb2xkLWNvaW4t/ZG9sbGFyLXVzLWN1/cnJlbmN5LW1vbmV5/LWljb24tc2lnbi1v/ci1zeW1ib2wtcG5n/LWltYWdlXzcxMDE3/ODUucG5n")
     await interaction.response.send_message(embed=coinEmbed)
 
+# Shows picture of The World stand
+@dioBot.slash_command(name="stand", description="Get a picture of DIO's stand", guild_ids=[serverID])
+async def stand(interaction: Interaction):
+    theWorldEmbed = discord.Embed(title="The World", color=0xccff33)
+    theWorldEmbed.set_image("https://imgs.search.brave.com/dStKObXB1Zl17NAhwKXqadAEY6jLmllzkJ4YmLclQNA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuam9qb3dpa2ku/Y29tL2ltYWdlcy90/aHVtYi9mL2Y1L2xh/dGVzdC8yMDIxMDQy/NDE2MjkxMi9UaGVf/V29ybGRfSW5mb2Jv/eF9NYW5nYS5wbmcv/NDAwcHgtVGhlX1dv/cmxkX0luZm9ib3hf/TWFuZ2EucG5n")
+    await interaction.response.send_message(embed=theWorldEmbed)
+
 # Run the bot
 dioBot.run(botToken)
