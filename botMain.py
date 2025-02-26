@@ -155,5 +155,14 @@ async def overheaven(interaction: Interaction):
     overHeavenEmbed.set_image("https://imgs.search.brave.com/CqxWZwq8DqjTDCBp61mWHC_TB75fdQEjnVMin9GS3ZY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L3Zz/YmF0dGxlcy9pbWFn/ZXMvYi9iZi9IZWF2/ZW5fRGlvLnBuZy9y/ZXZpc2lvbi9sYXRl/c3Qvc2NhbGUtdG8t/d2lkdGgtZG93bi80/MDA_Y2I9MjAxNjEw/MjIxNjI1NTI")
     await interaction.response.send_message(embed=overHeavenEmbed)
 
+# Rolls a dice(many options)
+@dioBot.slash_command(name="roll", description="Roll a dice!", guild_ids=[serverID])
+async def roll(interaction: Interaction, sides: int):
+    rollRandom = random.randint(1, sides)
+    rollEmbed = discord.Embed(title="Dice Roll!", description="You rolled "+str(rollRandom)+"!",color=0xccff33)
+    rollEmbed.set_thumbnail("https://imgs.search.brave.com/lRAEVm5EOvlrXvwS5kLaM_cLfqklyQF2yJvDQvrltas/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAxNi8w/NC9EaWNlLnBuZw")
+    await interaction.response.send_message(embed=rollEmbed)
+
+
 # Run the bot
 dioBot.run(botToken)
