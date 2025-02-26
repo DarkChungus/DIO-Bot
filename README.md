@@ -18,5 +18,6 @@
     <b>/greet:</b> Get DIO to greet anyone!<br>
     <b>/stand:</b> Get a picture of The World!<br>
     <b>/overheaven:</b> Get a picture of Heaven Attained Dio.<br>
+    <b>/roll:</b> Roll a dice! You can enter as many sides as you want.<br>
   </p>
 </div>
