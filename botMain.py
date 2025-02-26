@@ -28,8 +28,8 @@ async def help(interaction: Interaction):
         title="DIO BOT HELP",
         color=0xff00ff
     )
-    helpEmbed.add_field(name="__Commands__", value="**/help**\n**/github**\n**/magic8ball**\n\n**/ship**\n**/flip**\n**/introduction**\n**/greet**\n**/stand**\n**/overheaven**")
-    helpEmbed.add_field(name="__Description__", value="Gives you a list of the commands this bot uses.\nLink to my creator's GitHub.\n Ask any question to the Magic 8 Ball! Not to be taken seriously.\nShip any two users!\nFlip a coin!\nGet an introduction to Dio Brando.\nGet DIO to greet anyone!\n Get a picture of The World!\n Get a picture of Heaven Attained DIO.")
+    helpEmbed.add_field(name="__Commands__", value="**/help**\n**/github**\n**/magic8ball**\n\n**/ship**\n**/flip**\n**/introduction**\n**/greet**\n**/stand**\n**/overheaven**\n**/roll**")
+    helpEmbed.add_field(name="__Description__", value="Gives you a list of the commands this bot uses.\nLink to my creator's GitHub.\n Ask any question to the Magic 8 Ball! Not to be taken seriously.\nShip any two users!\nFlip a coin!\nGet an introduction to Dio Brando.\nGet DIO to greet anyone!\n Get a picture of The World!\n Get a picture of Heaven Attained DIO.\n Roll a dice!")
     helpEmbed.set_thumbnail("https://imgs.search.brave.com/I8XY4HUTbHeuwa_2mPPwXEe_FlSww2AiuF_tv_a9ciE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/YTQ2MTQxOGQwOTlh/MmFkMDNmOWM5OTku/cG5n")
     await interaction.response.send_message(embed=helpEmbed)
 
