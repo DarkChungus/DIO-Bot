@@ -95,6 +95,12 @@ async def ship(interaction: Interaction, user1: str, user2: str):
     userOne = str(user1)
     userTwo = str(user2)
     loveChance = random.randint(1, 101)
+
+    if userOne.lower() == "romeo" and userTwo.lower() == "juliet":
+        loveChance = 100
+    elif userOne.lower() == "juliet" and userTwo.lower() == "romeo":
+        loveChance == 100
+
     if loveChance<20:
         shipReview = "**Oof.. would not ship..**"
     elif loveChance>=20 and loveChance<50:
@@ -111,6 +117,11 @@ async def ship(interaction: Interaction, user1: str, user2: str):
         shipReview = "**Wow!!! These people are meant for each other!**"
     elif loveChance==100:
         shipReview = "***THIS IS A PERFECT MATCH! <3 <3 <3***"
+
+    if userOne.lower() == "romeo" and userTwo.lower() == "juliet":
+        shipReview = "it's romeo and juliet, what do you think would have happened"
+    elif userOne.lower() == "juliet" and userTwo.lower() == "romeo":
+        shipReview = "it's romeo and juliet, what do you think would have happened"
 
     shipEmbed = discord.Embed(
         title="Ship",
