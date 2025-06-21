@@ -22,7 +22,7 @@ async def on_ready():
     print("--------------------------")
 
 # Help command
-@dioBot.slash_command(name="help", description="A list with the commands of this bot", guild_ids=[serverID])
+@dioBot.add_command(name="help", description="A list with the commands of this bot", guild_ids=[serverID])
 async def help(interaction: Interaction):
     helpEmbed = discord.Embed(
         title="DIO BOT HELP",
@@ -40,7 +40,7 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/za-warudo-the-world-dio-brando-stand-joseph-joestar-gif-26463002')
 
 # DIO Introduces himself
-@dioBot.slash_command(name="introduction", description="Get an idea of who I am", guild_ids=[serverID])
+@dioBot.add_command(name="introduction", description="Get an idea of who I am", guild_ids=[serverID])
 async def introduction(interaction: Interaction):
     introEmbed = discord.Embed(
         title="DIO's Introduction",
@@ -52,7 +52,7 @@ async def introduction(interaction: Interaction):
     await interaction.response.send_message(embed=introEmbed)
 
 # Simple Greetings
-@dioBot.slash_command(name="greet", description="DIO greets anyone!", guild_ids=[serverID])
+@dioBot.add_command(name="greet", description="DIO greets anyone!", guild_ids=[serverID])
 async def greet(interaction: Interaction, name: str):
     greetEmbed = discord.Embed(
         title="Greetings",
@@ -63,7 +63,7 @@ async def greet(interaction: Interaction, name: str):
     await interaction.response.send_message(embed=greetEmbed)
 
 # Slash command to my GitHub
-@dioBot.slash_command(name="github", description="Link to my creator\'s GitHub", guild_ids=[serverID])
+@dioBot.add_command(name="github", description="Link to my creator\'s GitHub", guild_ids=[serverID])
 async def github(interaction: Interaction):
     githubEmbed = discord.Embed(
         title="My Github",
@@ -74,7 +74,7 @@ async def github(interaction: Interaction):
     await interaction.response.send_message(embed=githubEmbed)
 
 # Magic 8Ball
-@dioBot.slash_command(name="magic8ball", description="Ask the Magic 8Ball any question!", guild_ids=[serverID])
+@dioBot.add_command(name="magic8ball", description="Ask the Magic 8Ball any question!", guild_ids=[serverID])
 async def magic8ball(interaction: Interaction, message: str):
     ballAnswers = ['yes', 'i dont know', 'no', 'maybe', 'i do not care', 'why are you trusting this bot?']
     ballRandom = random.randint(0, 5)
@@ -90,7 +90,7 @@ async def magic8ball(interaction: Interaction, message: str):
     await interaction.response.send_message(embed=ballEmbed)
 
 # Shipping Command
-@dioBot.slash_command(name="ship", description="Ship any two people using this feature!", guild_ids=[serverID])
+@dioBot.add_command(name="ship", description="Ship any two people using this feature!", guild_ids=[serverID])
 async def ship(interaction: Interaction, user1: str, user2: str):
     userOne = str(user1)
     userTwo = str(user2)
@@ -132,7 +132,7 @@ async def ship(interaction: Interaction, user1: str, user2: str):
     await interaction.response.send_message(embed=shipEmbed)
 
 # Coin Flip
-@dioBot.slash_command(name="flip", description="Flip a coin", guild_ids=[serverID])
+@dioBot.add_command(name="flip", description="Flip a coin", guild_ids=[serverID])
 async def flip(interaction: Interaction):
     coinToss = ['heads', 'tails']
     temp = random.randint(0, 1)
@@ -153,21 +153,21 @@ async def flip(interaction: Interaction):
     await interaction.response.send_message(embed=coinEmbed)
 
 # Shows picture of The World stand
-@dioBot.slash_command(name="stand", description="Get a picture of DIO's stand", guild_ids=[serverID])
+@dioBot.add_command(name="stand", description="Get a picture of DIO's stand", guild_ids=[serverID])
 async def stand(interaction: Interaction):
     theWorldEmbed = discord.Embed(title="The World", color=0xccff33)
     theWorldEmbed.set_image("https://static.wikia.nocookie.net/jjba/images/d/d8/The_world_c252.png/revision/latest?cb=20160413152044")
     await interaction.response.send_message(embed=theWorldEmbed)
 
 # Shows picture of Heaven Attained Dio
-@dioBot.slash_command(name="overheaven", description="Get a picture of Heaven Attained Dio", guild_ids=[serverID])
+@dioBot.add_command(name="overheaven", description="Get a picture of Heaven Attained Dio", guild_ids=[serverID])
 async def overheaven(interaction: Interaction):
     overHeavenEmbed = discord.Embed(title="The World Over Heaven", color=0x9933ff)
     overHeavenEmbed.set_image("https://imgs.search.brave.com/CqxWZwq8DqjTDCBp61mWHC_TB75fdQEjnVMin9GS3ZY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L3Zz/YmF0dGxlcy9pbWFn/ZXMvYi9iZi9IZWF2/ZW5fRGlvLnBuZy9y/ZXZpc2lvbi9sYXRl/c3Qvc2NhbGUtdG8t/d2lkdGgtZG93bi80/MDA_Y2I9MjAxNjEw/MjIxNjI1NTI")
     await interaction.response.send_message(embed=overHeavenEmbed)
 
 # Rolls a dice(many options)
-@dioBot.slash_command(name="roll", description="Roll a dice!", guild_ids=[serverID])
+@dioBot.add_command(name="roll", description="Roll a dice!", guild_ids=[serverID])
 async def roll(interaction: Interaction, sides: int):
     rollRandom = random.randint(1, sides)
     rollEmbed = discord.Embed(title="Dice Roll!", description="You rolled "+str(rollRandom)+"!",color=0xccff33)
